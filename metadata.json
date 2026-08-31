@@ -20,7 +20,7 @@
   "code_doi": null,
   "disclosure_class": "A",
   "escrow_doi": null,
-  "zenodo_doi": null,
+  "zenodo_doi": "10.5281/zenodo.22213285",
   "coverage": {
     "interventions": 16,
     "outcomes": 13
