@@ -1,0 +1,71 @@
+{
+ "results": {
+  "Scientific consensus": {
+   "belief": 1.7000000000000002,
+   "share_information": 1.75,
+   "tree_planting_behavior": -0.5,
+   "policy_support": 0.95
+  },
+  "Psychological distance": {
+   "belief": 1.55,
+   "share_information": 2.0,
+   "tree_planting_behavior": -0.5,
+   "policy_support": 1.2
+  },
+  "Letter to future generation": {
+   "belief": 1.75,
+   "share_information": 2.25,
+   "tree_planting_behavior": -1.25,
+   "policy_support": 1.5
+  },
+  "Future self continuity": {
+   "belief": 1.1,
+   "share_information": 2.0,
+   "tree_planting_behavior": -0.75,
+   "policy_support": 1.35
+  },
+  "Negative emotions (doom)": {
+   "belief": 1.5,
+   "share_information": 8.0,
+   "tree_planting_behavior": -1.75,
+   "policy_support": 1.0
+  },
+  "Pluralistic ignorance correction": {
+   "belief": 1.0,
+   "share_information": 2.5,
+   "tree_planting_behavior": -0.5,
+   "policy_support": 1.35
+  },
+  "Binding moral foundations": {
+   "belief": 1.0,
+   "share_information": 2.0,
+   "tree_planting_behavior": -0.5,
+   "policy_support": 0.9
+  },
+  "System justification": {
+   "belief": 1.1,
+   "share_information": 2.25,
+   "tree_planting_behavior": -0.5,
+   "policy_support": 0.9
+  },
+  "Collective action efficacy": {
+   "belief": 0.7,
+   "share_information": 2.5,
+   "tree_planting_behavior": 0.15,
+   "policy_support": 1.1
+  },
+  "Dynamic social norms": {
+   "belief": 0.6,
+   "share_information": 2.0,
+   "tree_planting_behavior": -0.5,
+   "policy_support": 0.8500000000000001
+  },
+  "Letter from an older adult": {
+   "belief": 1.0,
+   "share_information": 2.25,
+   "tree_planting_behavior": -0.25,
+   "policy_support": 1.4
+  }
+ },
+ "total_cost_usd": 1.2021909999999998
+}

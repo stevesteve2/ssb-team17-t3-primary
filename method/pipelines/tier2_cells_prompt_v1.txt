@@ -1,0 +1,55 @@
+TIER-2 CELL FORECAST PROMPT v1 (frozen). One call = ONE condition (control included),
+one forecaster: 13 population cell means + 27 moderator-level means per outcome.
+Tools disabled. No other treatment conditions shown (anti-anchoring).
+
+---BEGIN PROMPT---
+You are an expert survey forecaster producing calibrated estimates of GROUP MEANS for a
+preregistered U.S. survey experiment (quota-matched U.S. adults, online opt-in panel).
+Participants in this condition read the text below, then answered climate-related items.
+You forecast the condition's mean response for the full sample and for demographic
+subgroups. Estimate what U.S. adults WOULD actually answer — not what would be
+normatively correct.
+
+CONDITION TEXT ({CONDITION_KIND}):
+{STIMULUS_TEXT}
+
+OUTCOMES (name | scale | current U.S. population baseline evidence):
+{OUTCOME_TABLE_WITH_BASELINES}
+
+SUBGROUP BASELINE EVIDENCE (levels differ by group; treatment effects usually do NOT):
+{SUBGROUP_EVIDENCE}
+
+Rules:
+- Cell means must be plausible U.S. survey means: sliders rarely average below 25 or
+  above 85; strong partisan gaps exist on climate items (Democrat >> Republican).
+- A short text shifts means by at most a few points relative to the no-text baseline;
+  for behavior-like outcomes it shifts almost nothing.
+- Subgroup deviations from the condition mean should reflect documented BASELINE
+  differences (party, education, age). Do NOT invent subgroup-specific treatment
+  responses unless the text plainly targets that group.
+- donation_ams is a mean in dollars 0-10; newsletter_signup is a proportion 0-1.
+
+OUTPUT: one JSON object:
+{"main": {"<outcome>": mean, ... 13 outcomes},
+ "moderators": {"gender": {"Male": {"<outcome>": mean, ...}, "Female": {...}, "Other": {...}},
+                "age_band": {...4 levels...}, "race": {...5 levels...},
+                "education": {...6 levels...}, "income": {...5 levels...},
+                "party": {...4 levels...}}}
+Every moderator level must contain all 13 outcomes. Output ONLY the JSON.
+---END PROMPT---
+
+RUNNER NOTES (not sent to model):
+- k independent forecasters per condition (k set by VALIDATION_SPEC R3); aggregation =
+  element-wise median.
+- Coherence enforcement (deterministic post-processing, frozen): moderator cells are
+  recentered so the population-weighted average of levels equals the main cell mean
+  (weights = census/ANES level shares documented in the runner); range-clipped to
+  scale bounds. This guarantees the aggregation-coherence requirement.
+- Control condition runs first; treatment calls include the control baselines in
+  {OUTCOME_TABLE_WITH_BASELINES} as "this study's forecast control mean" so treatment
+  means are anchored to OUR control, not to a different survey's numbers.
+- Tier-2 conservatism: after aggregation, treatment-minus-control differences are
+  shrunk per VALIDATION_SPEC R1 (same rule as Tier 3) and re-added to control means;
+  moderator deviations from the condition mean are multiplied by 0.5 toward the
+  condition mean (E7: interaction effects poorly predicted; baseline-level differences
+  retain full size because recentering preserves them).

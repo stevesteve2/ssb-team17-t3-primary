@@ -1,0 +1,21 @@
+{
+ "n_rows": 30,
+ "unique_rows": 30,
+ "cost_usd": 0.412,
+ "wall_s": 168.9,
+ "trust_post_mean": 57.5,
+ "trust_post_sd": 17.2,
+ "dem_minus_rep_trust": 39.9,
+ "belief_mean": 60.2,
+ "policy_general_mean": 56.5,
+ "donation_mean": 3.37,
+ "newsletter_rate": 0.23,
+ "range_violations": 0,
+ "gates": {
+  "sd_in_10_35": true,
+  "all_rows_unique": true,
+  "party_gradient_ge10": true,
+  "parse_ge_27_of_30": true,
+  "PASS": true
+ }
+}

@@ -1,0 +1,26 @@
+resp00: ok 11s cost so far $0.10
+resp01: ok 11s cost so far $0.21
+resp02: ok 10s cost so far $0.32
+resp03: ok 13s cost so far $0.44
+resp04: ok 9s cost so far $0.54
+resp05: ok 9s cost so far $0.64
+resp06: ok 15s cost so far $0.76
+resp07: ok 12s cost so far $0.87
+resp08: ok 15s cost so far $1.00
+resp09: ok 12s cost so far $1.11
+resp10: ok 12s cost so far $1.23
+resp11: ok 12s cost so far $1.34
+{
+ "n_ok": 12,
+ "n_fail": 0,
+ "total_cost_usd": 1.339,
+ "mean_wall_s": 11.6,
+ "trust_post_mean": 67.1,
+ "trust_post_sd": 17.0,
+ "belief_mean": 71.7,
+ "policy_general_mean": 66.7,
+ "donation_mean": 1.92,
+ "newsletter_rate": 0.0,
+ "integer_violations": 0,
+ "range_violations": 0
+}

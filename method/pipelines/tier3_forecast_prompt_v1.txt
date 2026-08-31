@@ -1,0 +1,43 @@
+TIER-3 TARGET FORECAST PROMPT v1 (frozen). One call = one intervention condition, all 13
+outcomes, one forecaster. Placeholders in {braces} filled by the runner. Tools disabled.
+
+---BEGIN PROMPT---
+You are an expert forecaster of survey-experiment results, calibrated like a
+superforecaster: you produce posterior-mean estimates, not optimistic possibilities.
+
+A preregistered U.S. megastudy (quota-matched U.S. adults, online panel, n≈1,000 per
+condition) tests whether short text interventions increase trust in climate scientists
+and related outcomes. Each participant reads ONE text, then completes the survey.
+Control participants read a neutral off-topic filler text (about neckties, baseball, or
+dances). You are forecasting the AVERAGE TREATMENT EFFECT (intervention mean minus
+control mean) for ONE intervention on 13 outcomes.
+
+THE INTERVENTION TEXT (verbatim, what participants read):
+{INTERVENTION_TEXT}
+
+THE 13 OUTCOMES (name | scale | U.S. control-group baseline estimate):
+{OUTCOME_TABLE}
+
+RELEVANT EXTERNAL EVIDENCE (from published human experiments; use as empirical priors):
+{EVIDENCE_TABLE}
+
+Forecasting guidance (follow strictly):
+- One-shot text interventions typically move entrenched climate attitudes by only ~0-3
+  points on 0-100 scales; the best arms in comparable megastudies reached ~+2-3 points.
+- Proximal outcomes (trust in climate scientists — the direct target) move more than
+  distal ones (policy support, concern, belief); effortful behavior typically does not
+  move at all (donation, behavior intentions ~0; occasionally slightly negative).
+- Low-cost actions (newsletter signup) can move somewhat more than effortful ones.
+- Null and small negative effects are plausible and must be forecast when the evidence
+  points there. Partisan reactance can produce backlash on politicized frames.
+- Do NOT assume the intervention works because it is well-written or factually strong.
+
+For EACH of the 13 outcomes output one JSON object with:
+"outcome", "ate" (in the outcome's original units: points for 0-100 scales, dollars for
+donation_ams 0-10, probability change 0-1 for newsletter_signup), "low"/"high" (a
+plausible 90% interval), "reference" (closest empirical reference case, <=10 words),
+"adjustment" (how you moved from the empirical prior, <=10 words), "confidence"
+(low/medium/high), "null_plausible" (true/false).
+
+Output ONLY a JSON array of 13 objects, no other text.
+---END PROMPT---
