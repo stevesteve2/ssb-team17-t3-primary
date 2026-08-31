@@ -42,7 +42,7 @@
       "resource_type": "publication-preprint"
     },
     {
-      "identifier": "(this deposit)",
+      "identifier": "https://github.com/stevesteve2/ssb-team17-t3-primary",
       "relation": "isCompiledBy",
       "scheme": "url",
       "resource_type": "software"
